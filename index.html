@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Spin Jakpot</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#120000;
+color:white;
+text-align:center;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:linear-gradient(90deg,#3a0000,#8b0000);
+box-shadow:0 0 20px gold;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+color:gold;
+}
+
+nav a{
+margin-left:25px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+nav a:hover{
+color:gold;
+}
+
+/* HERO */
+
+.hero{
+padding:80px 20px;
+}
+
+.hero h1{
+font-size:40px;
+color:gold;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+opacity:0.9;
+margin-bottom:40px;
+}
+
+/* BONUS IMAGE */
+
+.banner{
+width:320px;
+border-radius:20px;
+box-shadow:0 0 40px gold;
+animation:glow 2s infinite alternate;
+transition:0.3s;
+}
+
+.banner:hover{
+transform:scale(1.05);
+}
+
+@keyframes glow{
+from{box-shadow:0 0 20px gold;}
+to{box-shadow:0 0 60px gold;}
+}
+
+/* PLAY BUTTON */
+
+.play-btn{
+display:inline-block;
+margin-top:40px;
+padding:18px 40px;
+font-size:22px;
+background:gold;
+color:#5a0000;
+font-weight:bold;
+border-radius:10px;
+text-decoration:none;
+animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+0%{box-shadow:0 0 10px gold;}
+50%{box-shadow:0 0 40px gold;}
+100%{box-shadow:0 0 10px gold;}
+}
+
+/* BONUS SECTION */
+
+.bonus{
+padding:80px 20px;
+background:#1a0000;
+}
+
+.timer{
+font-size:28px;
+color:gold;
+margin-top:20px;
+}
+
+/* LIVE WINS */
+
+.livewins{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#000;
+padding:15px 20px;
+border-radius:10px;
+box-shadow:0 0 20px gold;
+font-size:14px;
+}
+
+/* REVIEWS */
+
+.reviews{
+padding:80px 20px;
+background:#140000;
+}
+
+.review{
+max-width:500px;
+margin:20px auto;
+background:#1d0000;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 15px #700000;
+}
+
+footer{
+padding:20px;
+font-size:13px;
+opacity:0.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">Spin Jakpot</div>
+
+<nav>
+<a href="#play">Игры</a>
+<a href="#bonus">Бонусы</a>
+<a href="#reviews">Отзывы</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Spin Jakpot</h1>
+
+<p>
+Погрузись в мир азарта и таинственных выигрышей.
+Крути слоты, получай бонусы и лови свой jackpot уже сегодня.
+</p>
+
+<img src="bonus.png" class="banner">
+
+<br>
+
+<a id="play" class="play-btn" href="https://megaways6.com/ccbb38165">
+Играть сейчас
+</a>
+
+</section>
+
+<section id="bonus" class="bonus">
+
+<h2>🎁 Бонус новым игрокам</h2>
+
+<p>250% + 600 Free Spins</p>
+
+<div class="timer">
+Бонус исчезнет через: <span id="countdown">10:00</span>
+</div>
+
+</section>
+
+<section id="reviews" class="reviews">
+
+<h2>Отзывы игроков</h2>
+
+<div class="review">
+💬 Сергей, Москва  
+<br><br>
+Выиграл 740$ уже в первый вечер. Слоты реально дают!
+</div>
+
+<div class="review">
+💬 Андрей, Киев  
+<br><br>
+Лучший бонус который видел — 250% реально начислили.
+</div>
+
+<div class="review">
+💬 Максим, Минск  
+<br><br>
+Сначала не верил, но поднял 1200$ на Megaways.
+</div>
+
+</section>
+
+<footer>
+
+Spin Jakpot © 2026
+
+</footer>
+
+<div class="livewins" id="livewins">
+
+Игрок Ivan выиграл 920$
+
+</div>
+
+<script>
+
+/* TIMER */
+
+let time = 600;
+
+setInterval(function(){
+
+let minutes = Math.floor(time/60);
+let seconds = time%60;
+
+document.getElementById("countdown").innerHTML =
+minutes + ":" + (seconds<10 ? "0"+seconds : seconds);
+
+time--;
+
+},1000);
+
+
+/* FAKE LIVE WINS */
+
+const names = ["Ivan","Alex","Sergey","Max","Dmitry","Andrey"];
+const money = ["120$","540$","870$","320$","1500$","760$"];
+
+setInterval(function(){
+
+let name = names[Math.floor(Math.random()*names.length)];
+let win = money[Math.floor(Math.random()*money.length)];
+
+document.getElementById("livewins").innerHTML =
+"Игрок " + name + " выиграл " + win;
+
+},4000);
+
+</script>
+
+</body>
+</html>
